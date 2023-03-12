@@ -142,31 +142,89 @@ function multiplesParams(...names: string[]): void{
 type Mouse = {
     name: string,
     model: string,
-    brand: string
+    brand: string,
+    price: number
 }
 
 let mouse: Mouse = {
     name: "Mouse Logitech L565",
     model: "L565",
-    brand: "Logitech"
+    brand: "Logitech",
+    price: 1200
 }
 
 const showMouse = (mouse: Mouse) => console.log(`${mouse.name}`); 
 
-showMouse(mouse)
+// showMouse(mouse)
+
+const getPay = (mouse: Mouse, cobrar: () => string) => {
+    if(mouse.price > 200) {
+        return "nothing!"
+    } else {
+        cobrar()
+    }
+}
+
+// Async Functions
+
+async function exampleAsync(): Promise<string>{
+    await console.log("Tarea que se va a completar")
+    console.log("Tarea completa")
+    return "Completa :)"
+}
+
+exampleAsync()
+.then((resp) => {console.log(resp)})
+.catch((error)=>{console.log("Ha ocurrido un error", error)})
 
 
 
+// Generators 
+
+function* ejmGenerator() {
+    // yiel ---> para emitir valores
+
+    let i = 0;
+
+    while(i<5){
+        // Emitir valor incrementado
+        yield i++;
+    }
+}
+
+// Save generator function in a var
+
+let g = ejmGenerator();
+
+// console.log(g.next().value) // 0
+// console.log(g.next().value) // 1
+// console.log(g.next().value) // 2
+// console.log(g.next().value) // 3
+// console.log(g.next().value) // 4
+// console.log(g.next().done) // true
 
 
+// Worker
 
+function* watcher(value: number) {
+    yield value; // Emitimos el valor inicial
+    yield* worker(value); // Llamamos a las emisiones del worker para que emita los valores
+    yield value + 4; // Emitimos el valor final +4
+}
 
+function* worker(value: number) {
+    yield value + 1; 
+    yield value + 2; 
+    yield value + 3; 
+}
 
+let generatorSaga = watcher(0)
 
-
-
-
-
+console.log(generatorSaga.next().value) // 0 - watcher
+console.log(generatorSaga.next().value) // 1 - worker
+console.log(generatorSaga.next().value) // 2 - worker
+console.log(generatorSaga.next().value) // 3 - worker
+console.log(generatorSaga.next().value) // 4 - watcher
 
 
 
