@@ -1,3 +1,5 @@
+import { ExecFileSyncOptionsWithBufferEncoding, ExecSyncOptionsWithBufferEncoding } from "child_process";
+
 console.log("Hi world from typescript!");
 
 // Variables
@@ -126,21 +128,32 @@ function exampleReturn(name: string, lastName?: string): string | number{
 
 const t = exampleReturn("This", "is 🔥 ");
 
-console.log(t)
+// console.log(t)
+
+function multiplesParams(...names: string[]): void{
+    names.forEach((name)=>{
+        console.log(name)
+    })
+}
+
+// multiplesParams("H", "A", "L", "L", "O", "W", "I", "N")
 
 
+type Mouse = {
+    name: string,
+    model: string,
+    brand: string
+}
 
+let mouse: Mouse = {
+    name: "Mouse Logitech L565",
+    model: "L565",
+    brand: "Logitech"
+}
 
+const showMouse = (mouse: Mouse) => console.log(`${mouse.name}`); 
 
-
-
-
-
-
-
-
-
-
+showMouse(mouse)
 
 
 
