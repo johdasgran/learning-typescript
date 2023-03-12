@@ -60,8 +60,27 @@ let taskOne: Task = {
 
 
 console.log(typeof taskOne)
+console.log(taskOne.name)
+
+// Types of TypeScript
 
 
+type Product = {
+    name: string,
+    price: number
+    year: number
+}
+
+let car: Product = {
+    name: "Tesla",
+    price: 26000,
+    year: 2023
+}
+
+console.log(`El ${car.name} tiene un costo de $${car.price}`);
+
+
+console.log(car.year === 2023 ? `El ${car.name} es el modelo nuevo del ${car.year}` : `El ${car.name} es el modelo viejo`)
 
 
 
