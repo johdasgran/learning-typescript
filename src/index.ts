@@ -40,3 +40,33 @@ enum Running {
 let stateRunning: Running = Running.R2;
 
 console.log(stateRunning)
+
+
+// Interfaces
+
+interface Task {
+    name: string,
+    status: string,
+    urgencia: number
+}
+
+// We can make vars that they follow task interface
+
+let taskOne: Task = {
+    name: "Preparar la cena",
+    status: "Completed",
+    urgencia: 10
+}
+
+
+console.log(typeof taskOne)
+
+
+
+
+
+
+
+
+
+
