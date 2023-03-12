@@ -4,9 +4,9 @@ console.log("Hi world from typescript!");
 var name: string = "Johan";
 
 
-console.log("Hi, " + name);
-console.log("¿Qué tal", name, "?")
-console.log(`¿Como fua ${name}?`);
+// console.log("Hi, " + name);
+// console.log("¿Qué tal", name, "?")
+// console.log(`¿Como fua ${name}?`);
 
 const PI = 3.14;
 var n: any = 12;
@@ -18,7 +18,7 @@ a = "Typescript"
 b = true
 c = 8.9
 
-console.log(a, b, c)
+// console.log(a, b, c)
 
 
 
@@ -28,7 +28,7 @@ let anyList: any[] = ["Onions", 4]
 
 let values: (string | number | boolean)[] = ["Hi", true, 56]
 
-console.log(values.length)
+// console.log(values.length)
 
 
 enum Running {
@@ -39,7 +39,7 @@ enum Running {
 
 let stateRunning: Running = Running.R2;
 
-console.log(stateRunning)
+// console.log(stateRunning)
 
 
 // Interfaces
@@ -59,8 +59,8 @@ let taskOne: Task = {
 }
 
 
-console.log(typeof taskOne)
-console.log(taskOne.name)
+// console.log(typeof taskOne)
+// console.log(taskOne.name)
 
 // Types of TypeScript
 
@@ -77,10 +77,85 @@ let car: Product = {
     year: 2023
 }
 
-console.log(`El ${car.name} tiene un costo de $${car.price}`);
+// console.log(`El ${car.name} tiene un costo de $${car.price}`);
+// console.log(car.year === 2023 ? `El ${car.name} es el modelo nuevo del ${car.year}` : `El ${car.name} es el modelo viejo`)
 
 
-console.log(car.year === 2023 ? `El ${car.name} es el modelo nuevo del ${car.year}` : `El ${car.name} es el modelo viejo`)
+// Fuctions
+
+/**
+ * 
+ * @param name
+ * Function that allow say Hi
+ * 
+ */
+function sayHi(name:string) {
+    console.log(`Hi, ${name}`)
+}
+
+// sayHi("Johan")
+
+/**
+ * 
+ * @param name
+ * Function that allow say Bye
+ * 
+ */
+function sayBye(name?:string) {
+    n = name ? `Bye, ${name}` : `Bye, quien quiera q seas`; 
+    console.log(n)
+}
+
+// sayBye() //"Johan"
+
+
+function sayHiOrBye(name:string, lastName?: string, morning?: boolean, night?: boolean) {
+    if(morning){
+        console.log(`Gmorning, ${name} ${lastName}`);
+    }
+    if(night){
+        console.log(`Gbye, ${name} ${lastName}`)
+    }
+}
+
+// sayHiOrBye("Johan", "Grandas", true, false)
+
+function exampleReturn(name: string, lastName?: string): string | number{
+    return `${name} ${lastName}` + 12;
+}
+
+const t = exampleReturn("This", "is 🔥 ");
+
+console.log(t)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
