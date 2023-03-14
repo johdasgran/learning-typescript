@@ -168,8 +168,8 @@ const getPay = (mouse: Mouse, cobrar: () => string) => {
 // Async Functions
 
 async function exampleAsync(): Promise<string>{
-    await console.log("Tarea que se va a completar")
-    console.log("Tarea completa")
+    // await console.log("Tarea que se va a completar")
+    // console.log("Tarea completa")
     return "Completa :)"
 }
 
@@ -220,18 +220,41 @@ function* worker(value: number) {
 
 let generatorSaga = watcher(0)
 
-console.log(generatorSaga.next().value) // 0 - watcher
-console.log(generatorSaga.next().value) // 1 - worker
-console.log(generatorSaga.next().value) // 2 - worker
-console.log(generatorSaga.next().value) // 3 - worker
-console.log(generatorSaga.next().value) // 4 - watcher
+// console.log(generatorSaga.next().value) // 0 - watcher
+// console.log(generatorSaga.next().value) // 1 - worker
+// console.log(generatorSaga.next().value) // 2 - worker
+// console.log(generatorSaga.next().value) // 3 - worker
+// console.log(generatorSaga.next().value) // 4 - watcher
 
 
 
+// Persistencia de datos
+
+
+// 1. localStorage 
+// 2. sesionStorage
+// 3. Cookies
 
 
 
+import { deleteAllCookies, deleteCookie, setCookie } from "cookies-utils";
+ 
+// more information about the options in documentation https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie
+const cookieOptions = {
+  name: "darkMode", // string,
+  value: "value", // string,
+  maxAge: 10 * 60, // optional number (value in seconds),
+  expires: new Date(2099, 10, 1), // optional Date,
+  path: "/path", // optional string,
+  domain: "site.com", // optional string,
+  secure: true // optional boolean,
+};
 
 
+let cookie = setCookie(cookieOptions);
 
+console.log(cookie)
 
+deleteCookie("darkMode")
+
+deleteAllCookies()
