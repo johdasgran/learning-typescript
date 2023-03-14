@@ -245,16 +245,58 @@ const cookieOptions = {
   value: "value", // string,
   maxAge: 10 * 60, // optional number (value in seconds),
   expires: new Date(2099, 10, 1), // optional Date,
-  path: "/path", // optional string,
-  domain: "site.com", // optional string,
-  secure: true // optional boolean,
 };
 
 
-let cookie = setCookie(cookieOptions);
+// setInterval(()=>{
+//     console.log("Tic tac")
+// }, 100 )
 
-console.log(cookie)
 
-deleteCookie("darkMode")
+// class Temporizador
 
-deleteAllCookies()
+class Temporizador {
+
+    public finished?: () => void;
+
+    public start(): void {
+        setTimeout(()=>{
+            // Comprobamos q exista la función finished como callback
+            if(!this.finished) return;
+
+            // Cuando haya pasado el tiempo, se ejecutara la funcion finished
+            this.finished();
+
+        }, 1000)
+    }
+
+}
+
+
+
+const myTemporizador: Temporizador = new Temporizador();
+
+// Definimos la función del callback a ejecutar cuando termine el tiempo
+myTemporizador.finished = () => {
+    console.log("Event finished")
+}
+
+// Se inicia el timeout y cuando termine se ejecuta la función finished
+myTemporizador.start()
+
+
+// Eliminar la ejecución de la función
+delete myTemporizador.finished;
+
+
+
+
+
+
+
+
+
+
+
+
+
