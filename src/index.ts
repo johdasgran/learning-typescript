@@ -173,9 +173,9 @@ async function exampleAsync(): Promise<string>{
     return "Completa :)"
 }
 
-exampleAsync()
-.then((resp) => {console.log(resp)})
-.catch((error)=>{console.log("Ha ocurrido un error", error)})
+// exampleAsync()
+// .then((resp) => {console.log(resp)})
+// .catch((error)=>{console.log("Ha ocurrido un error", error)})
 
 
 
@@ -291,12 +291,54 @@ delete myTemporizador.finished;
 
 
 
+import {Course} from './models/Course';
+import {Student} from './models/Student';
+import { COURSES_LIST } from "./mock/courses.mock";
+
+
+// Creamos un curso
+
+// const cursoTS: Course = new Course("TypeScript", 15)
+// const cursoJS: Course = new Course("JavaScript", 23)
 
 
 
 
 
 
+// console.log(typeof cursoJS)
+
+// const coursesList: Course[] = [];
+// coursesList.push(cursoJS, cursoTS) // add courses in the list
+
+/* Usamos el mock */
+
+const coursesList: Course[] = COURSES_LIST;
 
 
+// Creamos a student
 
+const johan: Student = new Student("Johan", coursesList, "Grandas")
+
+console.log(johan)
+
+
+// Conocer horas estudiadas de Johan
+
+console.log(`Johan ha estudiado ${johan.hoursStudied} horas 🎉`)
+
+
+johan.addDNI = 123456;
+
+// change dni with set method
+console.log(johan)
+
+
+// Saber la instancia de un objeto/variable
+
+//typeof
+//instanceof
+
+console.log(typeof johan)
+
+console.log(johan instanceof Student)
