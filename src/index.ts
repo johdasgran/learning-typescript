@@ -294,6 +294,7 @@ delete myTemporizador.finished;
 import {Course} from './models/Course';
 import {Student} from './models/Student';
 import { COURSES_LIST } from "./mock/courses.mock";
+import { Person } from "./models/Person";
 
 
 // Creamos un curso
@@ -342,3 +343,14 @@ console.log(johan)
 console.log(typeof johan)
 
 console.log(johan instanceof Student)
+
+
+
+/************************/
+
+
+
+const sayHiJohan = new Person("Johan", "Grandas", 23);
+
+
+sayHiJohan.sayHi()
