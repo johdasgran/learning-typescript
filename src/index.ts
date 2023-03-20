@@ -295,6 +295,8 @@ import {Course} from './models/Course';
 import {Student} from './models/Student';
 import { COURSES_LIST } from "./mock/courses.mock";
 import { Boss, Employee, Person } from "./models/Person";
+import { ITask, Level } from "./models/interfaces/ITask";
+import { Programming } from "./models/Programing";
 
 
 // Creamos un curso
@@ -371,3 +373,28 @@ const sayHiJohan = new Person("Johan", "Grandas", 23);
 
 
 // sayHiJohan.sayHi()
+
+
+
+// Uso de interfaces
+
+let Program: ITask = {
+    title: 'Programming with TypeScript', 
+    description: 'Practice with TypeScript project',
+    completed: true,
+    important: Level.Bloking,
+    resume: function (): string {
+        return `${this.title} -> ${this.important} -> ${this.completed}`;
+    }
+}
+
+console.log(Program.resume())
+
+
+
+// Programming task implements with ITask
+
+
+let programmingTS = new Programming("Practice TypeScript", "Playing with typescript", true, Level.Informative);
+
+console.log(programmingTS.resume())
