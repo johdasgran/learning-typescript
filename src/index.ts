@@ -294,7 +294,7 @@ delete myTemporizador.finished;
 import {Course} from './models/Course';
 import {Student} from './models/Student';
 import { COURSES_LIST } from "./mock/courses.mock";
-import { Person } from "./models/Person";
+import { Boss, Employee, Person } from "./models/Person";
 
 
 // Creamos un curso
@@ -348,9 +348,26 @@ console.log(johan instanceof Student)
 
 /************************/
 
+let t1 = new Employee("Martin", "San José", 25, 4000);
+let t2 = new Employee("Eli", "Garc", 21, 2000);
+let t3 = new Employee("Sofia", "Arkhan", 24, 6000);
 
+
+const bossT = new Boss("Mariana", "Gomez", 36);
+
+bossT.employeers.push(t1, t2, t3);
+
+
+console.log(bossT.employeers)
+
+bossT.employeers.forEach(employeer => {
+    employeer.sayHi();
+})
+
+
+// Herencia y Polimorfismo
 
 const sayHiJohan = new Person("Johan", "Grandas", 23);
 
 
-sayHiJohan.sayHi()
+// sayHiJohan.sayHi()
