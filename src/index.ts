@@ -398,3 +398,65 @@ console.log(Program.resume())
 let programmingTS = new Programming("Practice TypeScript", "Playing with typescript", true, Level.Informative);
 
 console.log(programmingTS.resume())
+
+
+
+// Experimental decoretors --> @
+// Classes
+// Params
+// Methods
+// Properties 
+
+function Override(label:string) {
+    return function (target:any, key:string) {
+        Object.defineProperty(target, key, {
+            configurable: false,
+            get: () => label
+        })
+    }
+}
+
+
+class TestDeoretor {
+    @Override('Test') // call function Override
+    name: string = "Carl"
+
+}
+
+// let test = new TestDeoretor();
+
+// console.log(test.name) // 'Test' siempre va a ser devuelto a través del get()
+
+// Other functions for used like decorator
+
+function onlyRead(target: any, key: string) {
+    Object.defineProperty(target, key, {
+        writable: false //true
+    })
+}
+
+class tesstOnlyRead {
+    @onlyRead
+    name: string = ''
+}
+
+
+// let tor = new tesstOnlyRead();
+
+// console.log(tor.name = "Heoe")
+
+
+// Decoretor for params of method
+// show position of the params
+function showPosition(target: any, propertyKey: string, parameterIndex: number){
+    console.log("Position", parameterIndex)
+}
+
+class TestMethodDecoretor {
+    test( a: string, b: boolean, @showPosition c: boolean){
+        console.log(b, a, c)
+    }
+}
+
+new TestMethodDecoretor().test("Hi!", true, false)
+
