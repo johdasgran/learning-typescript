@@ -1,5 +1,3 @@
-import { ExecFileSyncOptionsWithBufferEncoding, ExecSyncOptionsWithBufferEncoding } from "child_process";
-
 console.log("Hi world from typescript!");
 
 // Variables
